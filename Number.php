@@ -6,7 +6,6 @@
 </head>
 <body>
     <h2>Enter up to 10 numbers</h2>
-
     <form method="post">
         <?php
         // Create 10 input boxes dynamically
@@ -17,28 +16,20 @@
         <br>
         <input type="submit" name="submit" value="Submit">
     </form>
-
     <?php
     if (isset($_POST['submit'])) {
         $numbers = $_POST['num'];
         $count = 0;
-
         echo "<h3>Entered Numbers:</h3>";
-
         foreach ($numbers as $num) {
-            // If the input is empty, skip it
-            if ($num === "") continue;
-
-            // Stop if a negative number is entered
-            if ($num < 0) {
+            if ($num === "") continue; // If the input is empty, skip it
+            if ($num < 0) {            // Stop if a negative number is entered
                 echo "Negative number ($num) entered. Stopping input.<br>";
                 break;
             }
-
             echo "$num <br>";
             $count++;
         }
-
         echo "<br>Total valid (non-negative) numbers entered: $count";
     }
     ?>
